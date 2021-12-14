@@ -7,51 +7,124 @@
     android:columnCount="4"
     tools:context=".MainActivity">
 
-    <Button android:text="AC" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="AC" />
 
-    <Button android:text="Del" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Del" />
 
-    <Button android:text="%" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="%" />
 
-    <Button android:text="/" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="/" />
 
-    <Button android:text="7" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="7" />
 
-    <Button android:text="8" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="8" />
 
-    <Button android:text="9" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="9" />
 
-    <Button android:text="*" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="*" />
 
-    <Button android:text="4" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="4" />
 
-    <Button android:text="5" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="5" />
 
-    <Button android:text="6" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="6" />
 
-    <Button android:text="-" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="-" />
 
-    <Button android:text="1" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="1" />
 
-    <Button android:text="2" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="2" />
 
-    <Button android:text="3" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="3" />
 
     <Button
         android:layout_rowSpan="3"
         android:layout_gravity="fill"
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:text="+" />
 
     <Button
         android:layout_columnSpan="2"
         android:layout_gravity="fill"
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:text="0" />
 
-    <Button android:text="00" />
+    <Button
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="00" />
 
     <Button
         android:layout_columnSpan="3"
         android:layout_gravity="fill_horizontal"
+        android:layout_margin="@dimen/button_margin"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:text="=" />
 
 </GridLayout>
