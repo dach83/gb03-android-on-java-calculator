@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">gb03-android-on-java-calculator</string>
+    <string name="num0_button">0</string>
+    <string name="num00_button">00</string>
+    <string name="num1_button">1</string>
+    <string name="num2_button">2</string>
+    <string name="num3_button">3</string>
+    <string name="num4_button">4</string>
+    <string name="num5_button">5</string>
+    <string name="num6_button">6</string>
+    <string name="num7_button">7</string>
+    <string name="num8_button">8</string>
+    <string name="num9_button">9</string>
+    <string name="clear_button">AC</string>
+    <string name="del_button">Del</string>
+    <string name="mod_button">%</string>
+    <string name="div_button">/</string>
+    <string name="multiplication_button">*</string>
+    <string name="minus_button">-</string>
+    <string name="plus_button">+</string>
+    <string name="equal_button">=</string>
 </resources>
