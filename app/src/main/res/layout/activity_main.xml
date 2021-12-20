@@ -1,18 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_bridge"
     tools:context=".MainActivity">
 
-    <TextView
+    <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:columnCount="4"
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_columnSpan="4"
+            android:layout_gravity="end"
+            android:textColor="@color/num_text_color"
+            android:textSize="@dimen/expression_text_size"
+            tools:text="32 + 24" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/clear_button"
+            android:textColor="@color/func_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/del_button"
+            android:textColor="@color/func_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/mod_button"
+            android:textColor="@color/func_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/div_button"
+            android:textColor="@color/func_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/num7_button"
+            android:textColor="@color/num_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/num8_button"
+            android:textColor="@color/num_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/num9_button"
+            android:textColor="@color/num_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/multiplication_button"
+            android:textColor="@color/func_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/num4_button"
+            android:textColor="@color/num_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/num5_button"
+            android:textColor="@color/num_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/num6_button"
+            android:textColor="@color/num_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/minus_button"
+            android:textColor="@color/func_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/num1_button"
+            android:textColor="@color/num_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/num2_button"
+            android:textColor="@color/num_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/num3_button"
+            android:textColor="@color/num_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_rowSpan="3"
+            android:layout_gravity="fill"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/plus_button"
+            android:textColor="@color/func_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/num0_button"
+            android:textColor="@color/num_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/num00_button"
+            android:textColor="@color/num_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:layout_columnSpan="3"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/equal_button"
+            android:textColor="@color/func_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+    </GridLayout>
+</FrameLayout>
