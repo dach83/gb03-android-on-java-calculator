@@ -12,7 +12,8 @@ public enum CalculatorButton {
     NUM_8(R.id.num8_button, "8"),
     NUM_9(R.id.num9_button, "9"),
     NUM_00(R.id.num00_button, "00"),
-    NUM_DOT(R.id.dot_button, ","),
+    DOT(R.id.dot_button, "."),
+    MINUS(R.id.minus_button, "-"),
     EMPTY_ACTION(0, "");
 
     private final int id;
