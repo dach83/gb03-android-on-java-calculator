@@ -156,7 +156,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
-            android:layout_rowSpan="3"
+            android:layout_rowSpan="2"
             android:layout_gravity="fill"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
@@ -197,5 +197,13 @@
             android:textColor="@color/func_text_color"
             android:textSize="@dimen/button_text_size" />
 
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/dot_button"
+            android:textColor="@color/func_text_color"
+            android:textSize="@dimen/button_text_size" />
     </GridLayout>
 </FrameLayout>

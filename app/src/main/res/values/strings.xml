@@ -19,4 +19,5 @@
     <string name="minus_button">-</string>
     <string name="plus_button">+</string>
     <string name="equal_button">=</string>
+    <string name="dot_button">,</string>
 </resources>
