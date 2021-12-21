@@ -9,7 +9,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#80FFFFFF"/>
+        android:contentDescription="@string/adjusting_the_background_opacity"
+        android:background="#80FFFFFF" />
 
     <GridLayout
         android:layout_width="wrap_content"
@@ -20,6 +21,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/input_text_view"
             android:layout_columnSpan="4"
             android:layout_gravity="end"
             android:textColor="@color/num_text_color"
@@ -27,6 +29,7 @@
             tools:text="32 + 24" />
 
         <Button
+            android:id="@+id/clear_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -36,6 +39,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/del_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -45,15 +49,17 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/percent_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/mod_button"
+            android:text="@string/percent_button"
             android:textColor="@color/func_text_color"
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/div_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -63,6 +69,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/num7_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -72,6 +79,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/num8_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -81,6 +89,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/num9_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -90,6 +99,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/multiplication_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -99,6 +109,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/num4_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -108,6 +119,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/num5_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -117,6 +129,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/num6_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -126,6 +139,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/minus_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -135,6 +149,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/num1_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -144,6 +159,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/num2_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -153,6 +169,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/num3_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -162,6 +179,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/plus_button"
             android:layout_rowSpan="2"
             android:layout_gravity="fill"
             android:layout_margin="@dimen/button_margin"
@@ -173,6 +191,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/num0_button"
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:layout_margin="@dimen/button_margin"
@@ -184,6 +203,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/num00_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
@@ -193,6 +213,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/equal_button"
             android:layout_columnSpan="3"
             android:layout_gravity="fill_horizontal"
             android:layout_margin="@dimen/button_margin"
@@ -204,6 +225,7 @@
             android:textSize="@dimen/button_text_size" />
 
         <Button
+            android:id="@+id/dot_button"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/button_background_color"
             android:insetTop="0dp"
