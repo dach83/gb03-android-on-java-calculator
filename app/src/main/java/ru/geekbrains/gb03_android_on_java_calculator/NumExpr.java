@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 
 public class NumExpr extends Expr {
 
-    public final static Expr ZERO_EXPR = new NumExpr("0");
+    public final static Expr ZERO = new NumExpr("0");
 
     private final String value;
 
@@ -16,5 +16,14 @@ public class NumExpr extends Expr {
     @Override
     public String toString() {
         return value;
+    }
+
+    @Override
+    public double calc() throws InvalidExpression {
+        try {
+            return Double.parseDouble(value);
+        } catch (NumberFormatException e) {
+            throw new InvalidExpression(e.getMessage());
+        }
     }
 }

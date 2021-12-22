@@ -1,29 +1,29 @@
 package ru.geekbrains.gb03_android_on_java_calculator;
 
-import static ru.geekbrains.gb03_android_on_java_calculator.CalculatorButton.*;
-import static ru.geekbrains.gb03_android_on_java_calculator.NumExpr.ZERO_EXPR;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
-
-import java.util.EnumSet;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static String TAG = "MainActivity";
+    private static final String TAG = "@@@";
 
-    private Expr expr = ZERO_EXPR;
+    // идентификаторы кнопок предназначенных для ввода выражения
+    // у них общий обработчик
+    private final int[] inputExprButtonsId = {
+            R.id.num0_button, R.id.num1_button, R.id.num2_button,
+            R.id.num3_button, R.id.num4_button, R.id.num5_button,
+            R.id.num6_button, R.id.num7_button, R.id.num8_button,
+            R.id.num9_button, R.id.num00_button, R.id.dot_button,
+            R.id.minus_button,
+    };
 
+    private Expr currentExpr = NumExpr.ZERO;
     private TextView inputTextView;
-
-    // множество кнопок предназначенных для ввода числа
-    private final EnumSet<CalculatorButton> inputNumButtons = EnumSet.of(
-            NUM_1, NUM_2, NUM_3, NUM_4, NUM_5, NUM_6, NUM_7,
-            NUM_8, NUM_9, NUM_0, NUM_00, DOT, MINUS
-    );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,37 +34,41 @@ public class MainActivity extends AppCompatActivity {
 
     private void initActivityView() {
         inputTextView = findViewById(R.id.input_text_view);
-        UpdateInputTextView();
 
-        for (CalculatorButton numButton : inputNumButtons) {
-            findViewById(numButton.getId()).setOnClickListener(view -> {
-                CalculatorButton clickedButton = CalculatorButton.findById(view.getId());
-                numButtonClick(clickedButton);
-            });
-        }
+        findViewById(R.id.clear_button).setOnClickListener(this::clearButtonOnClick);
+        findViewById(R.id.del_button).setOnClickListener(this::delButtonOnClick);
+        findViewById(R.id.equal_button).setOnClickListener(this::equalButtonOnClick);
 
-        findViewById(R.id.clear_button).setOnClickListener(view -> {
-            expr = ZERO_EXPR;
-            UpdateInputTextView();
-        });
+        View.OnClickListener listener = this::inputExprButtonOnClick;
+        for (int id : inputExprButtonsId)
+            findViewById(id).setOnClickListener(listener);
 
-        findViewById(R.id.del_button).setOnClickListener(view -> {
-            expr = expr.delete();
-            UpdateInputTextView();
-        });
+        updateInputTextView();
     }
 
-    private void numButtonClick(CalculatorButton button) {
-        try {
-            expr = expr.concat(button.getText());
-            UpdateInputTextView();
-        } catch (Exception e) {
-            Log.d(TAG, "Illegal expression");
-        }
+    private void clearButtonOnClick(View view) {
+        currentExpr = NumExpr.ZERO;
+        updateInputTextView();
     }
 
-    private void UpdateInputTextView() {
-        inputTextView.setText(expr.toString());
+    private void delButtonOnClick(View view) {
+        currentExpr = currentExpr.delete();
+        updateInputTextView();
     }
 
+    private void equalButtonOnClick(View view) {
+        currentExpr = currentExpr.simplify();
+        updateInputTextView();
+    }
+
+    private void inputExprButtonOnClick(View view) {
+        Button button = (Button) view;
+        currentExpr = currentExpr.concat(button.getText().toString());
+        updateInputTextView();
+    }
+
+    private void updateInputTextView() {
+        inputTextView.setText(currentExpr.toString());
+        //Log.d(TAG, " == " + currentExpr.calc());
+    }
 }
