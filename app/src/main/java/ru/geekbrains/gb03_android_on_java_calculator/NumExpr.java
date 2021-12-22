@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 
 public class NumExpr extends Expr {
 
-    public final static Expr ZERO = new NumExpr("0");
+    public static final Expr ZERO = new NumExpr("0");
 
     private final String value;
 

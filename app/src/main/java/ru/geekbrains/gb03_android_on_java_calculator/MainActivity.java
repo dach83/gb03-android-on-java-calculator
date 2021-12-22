@@ -1,8 +1,10 @@
 package ru.geekbrains.gb03_android_on_java_calculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -11,10 +13,11 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "@@@";
+    private static final String CURRENT_EXPR_KEY = "current_expr_key";
 
-    // идентификаторы кнопок предназначенных для ввода выражения
+    // идентификаторы кнопок предназначенных для ввода выражения,
     // у них общий обработчик
-    private final int[] inputExprButtonsId = {
+    private static final int[] inputExprButtonsId = {
             R.id.num0_button, R.id.num1_button, R.id.num2_button,
             R.id.num3_button, R.id.num4_button, R.id.num5_button,
             R.id.num6_button, R.id.num7_button, R.id.num8_button,
@@ -29,7 +32,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (savedInstanceState != null && savedInstanceState.containsKey(CURRENT_EXPR_KEY))
+            //currentExpr = (Expr) savedInstanceState.getSerializable(CURRENT_EXPR_KEY);
+            currentExpr = savedInstanceState.getParcelable(CURRENT_EXPR_KEY);
+
+
         initActivityView();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        //outState.putSerializable(CURRENT_EXPR_KEY, currentExpr);
+        outState.putParcelable(CURRENT_EXPR_KEY, currentExpr);
     }
 
     private void initActivityView() {
@@ -62,13 +78,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void inputExprButtonOnClick(View view) {
-        Button button = (Button) view;
-        currentExpr = currentExpr.concat(button.getText().toString());
-        updateInputTextView();
+        if (view instanceof Button) {
+            Button button = (Button) view;
+            currentExpr = currentExpr.concat(button.getText().toString());
+            updateInputTextView();
+        }
     }
 
     private void updateInputTextView() {
         inputTextView.setText(currentExpr.toString());
-        //Log.d(TAG, " == " + currentExpr.calc());
     }
 }
