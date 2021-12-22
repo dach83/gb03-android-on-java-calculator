@@ -2,7 +2,6 @@ package ru.geekbrains.gb03_android_on_java_calculator;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "@@@";
     private static final String CURRENT_EXPR_KEY = "current_expr_key";
 
     // идентификаторы кнопок предназначенных для ввода выражения,
@@ -53,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.clear_button).setOnClickListener(this::clearButtonOnClick);
         findViewById(R.id.del_button).setOnClickListener(this::delButtonOnClick);
         findViewById(R.id.equal_button).setOnClickListener(this::equalButtonOnClick);
-        findViewById(R.id.show_second_activity_button).setOnClickListener(this::showSecondActivitiOnClick);
+        findViewById(R.id.show_second_activity_button).setOnClickListener(this::showSecondActivityOnClick);
 
         View.OnClickListener listener = this::inputExprButtonOnClick;
         for (int id : inputExprButtonsId)
@@ -62,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         updateInputTextView();
     }
 
-    private void showSecondActivitiOnClick(View view) {
+    private void showSecondActivityOnClick(View view) {
         Intent intent = new Intent(this, SecondActivity.class);
         intent.putExtra(SecondActivity.EXPR_EXTRA_KEY, (Parcelable) currentExpr);
         startActivity(intent);

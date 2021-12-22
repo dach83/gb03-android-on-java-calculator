@@ -2,6 +2,8 @@ package ru.geekbrains.gb03_android_on_java_calculator;
 
 import androidx.annotation.NonNull;
 
+import java.math.BigDecimal;
+
 public class NumExpr extends Expr {
 
     public static final Expr ZERO = new NumExpr("0");
@@ -19,10 +21,10 @@ public class NumExpr extends Expr {
     }
 
     @Override
-    public double calc() throws InvalidExpression {
+    public BigDecimal calc() throws InvalidExpression {
         try {
-            return Double.parseDouble(value);
-        } catch (NumberFormatException e) {
+            return new BigDecimal(value);
+        } catch (Exception e) {
             throw new InvalidExpression(e.getMessage());
         }
     }
