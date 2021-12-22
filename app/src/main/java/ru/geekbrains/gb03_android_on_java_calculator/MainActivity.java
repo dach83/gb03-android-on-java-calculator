@@ -3,9 +3,9 @@ package ru.geekbrains.gb03_android_on_java_calculator;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.util.Log;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
             //currentExpr = (Expr) savedInstanceState.getSerializable(CURRENT_EXPR_KEY);
             currentExpr = savedInstanceState.getParcelable(CURRENT_EXPR_KEY);
 
-
         initActivityView();
     }
 
@@ -54,12 +53,19 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.clear_button).setOnClickListener(this::clearButtonOnClick);
         findViewById(R.id.del_button).setOnClickListener(this::delButtonOnClick);
         findViewById(R.id.equal_button).setOnClickListener(this::equalButtonOnClick);
+        findViewById(R.id.show_second_activity_button).setOnClickListener(this::showSecondActivitiOnClick);
 
         View.OnClickListener listener = this::inputExprButtonOnClick;
         for (int id : inputExprButtonsId)
             findViewById(id).setOnClickListener(listener);
 
         updateInputTextView();
+    }
+
+    private void showSecondActivitiOnClick(View view) {
+        Intent intent = new Intent(this, SecondActivity.class);
+        intent.putExtra(SecondActivity.EXPR_EXTRA_KEY, (Parcelable) currentExpr);
+        startActivity(intent);
     }
 
     private void clearButtonOnClick(View view) {

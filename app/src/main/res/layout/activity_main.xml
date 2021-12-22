@@ -9,8 +9,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="@string/adjusting_the_background_opacity"
-        android:background="#80FFFFFF" />
+        android:background="#80FFFFFF"
+        android:contentDescription="@string/adjusting_the_background_opacity" />
 
     <GridLayout
         android:layout_width="wrap_content"
@@ -232,6 +232,19 @@
             android:insetBottom="0dp"
             android:text="@string/dot_button"
             android:textColor="@color/func_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:id="@+id/show_second_activity_button"
+            android:layout_columnSpan="4"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/button_background_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/second_activity_button"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
             android:textSize="@dimen/button_text_size" />
     </GridLayout>
 </FrameLayout>
