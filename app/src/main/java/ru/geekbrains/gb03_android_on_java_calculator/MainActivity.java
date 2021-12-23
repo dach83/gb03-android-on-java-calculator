@@ -2,6 +2,7 @@ package ru.geekbrains.gb03_android_on_java_calculator;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.minus_button,
     };
 
-    private Expr currentExpr = NumExpr.ZERO;
+    private Expr currentExpr;
     private TextView inputTextView;
 
     @Override
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState != null && savedInstanceState.containsKey(CURRENT_EXPR_KEY)) {
             currentExpr = savedInstanceState.getParcelable(CURRENT_EXPR_KEY);
+        } else {
+            currentExpr = NumExpr.ZERO;
         }
 
         initView();
