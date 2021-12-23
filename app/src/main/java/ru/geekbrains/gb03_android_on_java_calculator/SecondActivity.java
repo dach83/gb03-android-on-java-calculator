@@ -17,9 +17,9 @@ public class SecondActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if (intent != null) {
-            Expr expr = intent.getParcelableExtra(EXPR_EXTRA_KEY);
+            Expression expression = intent.getParcelableExtra(EXPR_EXTRA_KEY);
             TextView exprTextView = findViewById(R.id.expr_text_view);
-            exprTextView.setText(expr.toString());
+            exprTextView.setText(expression.toString());
         }
     }
 }
