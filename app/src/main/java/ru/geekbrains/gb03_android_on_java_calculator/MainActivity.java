@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.minus_button,
     };
 
-    private Expr currentExpr;
+    private Expression currentExpression;
     private TextView inputTextView;
 
     @Override
@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState != null && savedInstanceState.containsKey(CURRENT_EXPR_KEY)) {
-            currentExpr = savedInstanceState.getParcelable(CURRENT_EXPR_KEY);
+            currentExpression = savedInstanceState.getParcelable(CURRENT_EXPR_KEY);
         } else {
-            currentExpr = NumExpr.ZERO;
+            currentExpression = ExpressionBuilder.zeroExpression();
         }
 
         initView();
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(CURRENT_EXPR_KEY, currentExpr);
+        outState.putParcelable(CURRENT_EXPR_KEY, currentExpression);
     }
 
     private void initView() {
@@ -64,34 +64,34 @@ public class MainActivity extends AppCompatActivity {
 
     private void onClickShowSecondActivity(View view) {
         Intent intent = new Intent(this, SecondActivity.class);
-        intent.putExtra(SecondActivity.EXPR_EXTRA_KEY, currentExpr);
+        intent.putExtra(SecondActivity.EXPR_EXTRA_KEY, currentExpression);
         startActivity(intent);
     }
 
     private void onClickClearButton(View view) {
-        currentExpr = NumExpr.ZERO;
+        currentExpression = ExpressionBuilder.zeroExpression();
         updateInputTextView();
     }
 
     private void onClickDelButton(View view) {
-        currentExpr = currentExpr.delete();
+        currentExpression = ExpressionBuilder.deleteLastChar(currentExpression);
         updateInputTextView();
     }
 
     private void onClickEqualButton(View view) {
-        currentExpr = currentExpr.simplify();
+        currentExpression = ExpressionBuilder.convertToNumExpression(currentExpression);
         updateInputTextView();
     }
 
     private void onClickInputExpressionButton(View view) {
         if (view instanceof Button) {
             Button button = (Button) view;
-            currentExpr = currentExpr.concat(button.getText().toString());
+            currentExpression = ExpressionBuilder.concatWithString(currentExpression, button.getText().toString());
             updateInputTextView();
         }
     }
 
     private void updateInputTextView() {
-        inputTextView.setText(currentExpr.toString());
+        inputTextView.setText(currentExpression.toString());
     }
 }

@@ -4,19 +4,16 @@ import androidx.annotation.NonNull;
 
 import java.math.BigDecimal;
 
-public class NumExpr extends Expr {
-
-    public static final Expr ZERO = new NumExpr("0");
+public class NumExpression extends Expression {
 
     private final String value;
 
-    public NumExpr(String value) {
+    public NumExpression(String value) {
         this.value = value;
     }
 
-    @NonNull
     @Override
-    public String toString() {
+    public String convertToString() {
         return value;
     }
 
