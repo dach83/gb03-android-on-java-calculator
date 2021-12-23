@@ -35,8 +35,9 @@ public class ExpressionBuilder {
 
     public static Expression concatWithString(Expression expression, String str) {
         try {
-            if (expression == ZERO)
+            if (expression == ZERO) {
                 return buildFromString(str);
+            }
 
             return buildFromString(expression.convertToString() + str);
         } catch (InvalidExpression invalidExpression) {
@@ -61,19 +62,19 @@ public class ExpressionBuilder {
         }
     }
 
-    public static Expression convertToNumExpression(Expression expression) {
+    public static Expression calculateExpression(Expression expression) {
         try {
             if (expression instanceof NumExpression) {
-                return expression; // уже нечего упрощать
+                return expression;
             }
 
-            // вычисляем результат выражения
-            BigDecimal res = expression.calc();
+            // вычисляем результат составного выражения
+            BigDecimal res = expression.calculate();
             if (res.equals(BigDecimal.ZERO)) {
                 return ZERO;
             }
 
-            // создаем новое выражение на основании вычесленного результата
+            // создаем новое выражение из вычисленного результата
             return buildFromString(res.toPlainString());
         } catch (InvalidExpression invalidExpression) {
             return expression;

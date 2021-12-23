@@ -18,7 +18,7 @@ public class NumExpression extends Expression {
     }
 
     @Override
-    public BigDecimal calc() throws InvalidExpression {
+    public BigDecimal calculate() throws InvalidExpression {
         try {
             return new BigDecimal(value);
         } catch (Exception e) {

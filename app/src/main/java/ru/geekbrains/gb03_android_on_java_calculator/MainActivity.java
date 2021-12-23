@@ -47,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        inputTextView = findViewById(R.id.input_text_view);
-
         findViewById(R.id.clear_button).setOnClickListener(this::onClickClearButton);
         findViewById(R.id.del_button).setOnClickListener(this::onClickDelButton);
         findViewById(R.id.equal_button).setOnClickListener(this::onClickEqualButton);
@@ -59,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
             findViewById(id).setOnClickListener(inputExpressionButtonListener);
         }
 
+        inputTextView = findViewById(R.id.input_text_view);
         updateInputTextView();
     }
 
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onClickEqualButton(View view) {
-        currentExpression = ExpressionBuilder.convertToNumExpression(currentExpression);
+        currentExpression = ExpressionBuilder.calculateExpression(currentExpression);
         updateInputTextView();
     }
 
@@ -92,6 +91,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateInputTextView() {
-        inputTextView.setText(currentExpression.toString());
+        inputTextView.setText(currentExpression.convertToString());
     }
 }

@@ -11,7 +11,7 @@ public abstract class Expression implements Parcelable {
 
     abstract public String convertToString();
 
-    abstract public BigDecimal calc() throws InvalidExpression;
+    abstract public BigDecimal calculate() throws InvalidExpression;
 
     @NonNull
     @Override
