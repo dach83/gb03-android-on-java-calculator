@@ -26,7 +26,7 @@ public abstract class Expression implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
-        parcel.writeString(toString());
+        parcel.writeString(convertToString());
     }
 
     public static final Parcelable.Creator<Expression> CREATOR = new Parcelable.Creator<Expression>() {
