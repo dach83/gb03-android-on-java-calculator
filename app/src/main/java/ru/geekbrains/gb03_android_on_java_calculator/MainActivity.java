@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (savedInstanceState != null && savedInstanceState.containsKey(CURRENT_EXPR_KEY))
-            //currentExpr = (Expr) savedInstanceState.getSerializable(CURRENT_EXPR_KEY);
+        if (savedInstanceState != null && savedInstanceState.containsKey(CURRENT_EXPR_KEY)) {
             currentExpr = savedInstanceState.getParcelable(CURRENT_EXPR_KEY);
+        }
 
-        initActivityView();
+        initView();
     }
 
     @Override
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         outState.putParcelable(CURRENT_EXPR_KEY, currentExpr);
     }
 
-    private void initActivityView() {
+    private void initView() {
         inputTextView = findViewById(R.id.input_text_view);
 
         findViewById(R.id.clear_button).setOnClickListener(this::clearButtonOnClick);
@@ -54,15 +54,16 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.show_second_activity_button).setOnClickListener(this::showSecondActivityOnClick);
 
         View.OnClickListener listener = this::inputExprButtonOnClick;
-        for (int id : inputExprButtonsId)
+        for (int id : inputExprButtonsId) {
             findViewById(id).setOnClickListener(listener);
+        }
 
         updateInputTextView();
     }
 
     private void showSecondActivityOnClick(View view) {
         Intent intent = new Intent(this, SecondActivity.class);
-        intent.putExtra(SecondActivity.EXPR_EXTRA_KEY, (Parcelable) currentExpr);
+        intent.putExtra(SecondActivity.EXPR_EXTRA_KEY, currentExpr);
         startActivity(intent);
     }
 

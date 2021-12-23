@@ -2,26 +2,28 @@ package ru.geekbrains.gb03_android_on_java_calculator;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import java.io.Serializable;
+
 import java.math.BigDecimal;
 import java.util.regex.Pattern;
 
-public abstract class Expr implements Serializable, Parcelable {
+public abstract class Expr implements Parcelable {
 
     private static final Pattern doubleNumPattern = Pattern.compile("^(-?)(0|([1-9][0-9]*))*(\\.[0-9]*)?$");
 
     private static Expr build(String str) throws InvalidExpression {
         try {
             String noZeroStr = str.replaceFirst("^0+", "");
-            if (noZeroStr.isEmpty())
+            if (noZeroStr.isEmpty()) {
                 return NumExpr.ZERO;
-            else if (noZeroStr.equals("."))
+            } else if (noZeroStr.equals(".")) {
                 str = "0.";
-            else if (noZeroStr.equals("-."))
+            } else if (noZeroStr.equals("-.")) {
                 str = "-0.";
+            }
 
-            if (doubleNumPattern.matcher(str).find())
+            if (doubleNumPattern.matcher(str).find()) {
                 return new NumExpr(str);
+            }
 
             throw new InvalidExpression(str);
         } catch (Exception e) {
