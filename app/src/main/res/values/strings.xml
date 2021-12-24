@@ -21,4 +21,5 @@
     <string name="equal_button">=</string>
     <string name="dot_button">.</string>
     <string name="second_activity_button">Вторая активность</string>
+    <string name="example_expression">32.1+45.8*64%</string>
 </resources>

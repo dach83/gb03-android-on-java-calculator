@@ -9,13 +9,13 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#80FFFFFF" />
+        android:background="@color/transparent_white_200" />
 
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="@dimen/default_margin"
         android:columnCount="4"
         android:orientation="horizontal">
 
@@ -24,7 +24,7 @@
             style="@style/expression_text_style"
             android:layout_columnSpan="4"
             android:layout_gravity="end"
-            tools:text="32 + 24" />
+            tools:text="@string/example_expression" />
 
         <Button
             android:id="@+id/clear_button"

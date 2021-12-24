@@ -2,21 +2,22 @@
 <resources>
 
     <style name="num_button_style">
-        <item name="android:layout_margin">@dimen/button_margin</item>
-        <item name="android:backgroundTint">@color/button_background_color</item>
-        <item name="android:insetTop">@dimen/button_inset</item>
-        <item name="android:insetBottom">@dimen/button_inset</item>
-        <item name="android:textColor">@color/num_text_color</item>
+        <item name="android:layout_margin">@dimen/default_margin</item>
+        <item name="android:backgroundTint">@color/transparent_white_500</item>
+        <item name="android:insetTop">@dimen/button_vertical_inset</item>
+        <item name="android:insetBottom">@dimen/button_vertical_inset</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/button_text_size</item>
         <item name="android:layout_gravity">fill</item>
     </style>
 
     <style name="func_button_style" parent="num_button_style">
-        <item name="android:textColor">@color/func_text_color</item>
+        <item name="android:textColor">@color/orange_color</item>
     </style>
 
     <style name="expression_text_style">
-        <item name="android:textColor">@color/num_text_color</item>
+        <item name="android:layout_margin">@dimen/default_margin</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/expression_text_size</item>
     </style>
 </resources>
