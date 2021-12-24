@@ -10,4 +10,5 @@
     <color name="orange_color">#E39802</color>
     <color name="opacity_white_200">#80FFFFFF</color>
     <color name="opacity_white_500">#BBFFFFFF</color>
+    <color name="opacity_blue_500">#994C87E0</color>
 </resources>

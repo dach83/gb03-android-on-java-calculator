@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="default_padding">5dp</dimen>
     <dimen name="default_margin">5dp</dimen>
     <dimen name="button_vertical_inset">0dp</dimen>
     <dimen name="button_text_size">20sp</dimen>
+    <dimen name="button_corner_radius">2dp</dimen>
     <dimen name="expression_text_size">40sp</dimen>
 </resources>
