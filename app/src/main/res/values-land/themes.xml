@@ -1,0 +1,4 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.Gb03androidonjavacalculator" parent="Theme.MaterialComponents.DayNight.NoActionBar"/>
+</resources>
