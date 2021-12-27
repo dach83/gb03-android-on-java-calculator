@@ -50,7 +50,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.clear_button).setOnClickListener(this::onClickClearButton);
         findViewById(R.id.del_button).setOnClickListener(this::onClickDelButton);
         findViewById(R.id.equal_button).setOnClickListener(this::onClickEqualButton);
-        findViewById(R.id.show_second_activity_button).setOnClickListener(this::onClickShowSecondActivity);
+
+        Button showSecondActivityButton = findViewById(R.id.show_second_activity_button);
+        if (showSecondActivityButton != null) {
+            showSecondActivityButton.setOnClickListener(this::onClickShowSecondActivity);
+        }
 
         View.OnClickListener inputExpressionButtonListener = this::onClickInputExpressionButton;
         for (int id : inputExpressionButtonsId) {
