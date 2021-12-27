@@ -18,21 +18,21 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAlignment="viewEnd"
-        app:layout_constraintBottom_toBottomOf="@id/button_grid_layout"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/button_grid_layout"
+        app:layout_constraintBottom_toTopOf="@id/keypad_grid_layout"
+        app:layout_constraintLeft_toLeftOf="@id/keypad_grid_layout"
+        app:layout_constraintRight_toRightOf="@id/keypad_grid_layout"
         tools:text="@string/sample_expression" />
 
     <GridLayout
-        android:id="@+id/button_grid_layout"
+        android:id="@+id/keypad_grid_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:columnCount="4"
+        android:columnCount="7"
         android:orientation="horizontal"
         android:padding="@dimen/default_padding"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/clear_button"
@@ -40,9 +40,19 @@
             android:text="@string/clear_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/del_button"
-            style="@style/func_button_style"
-            android:text="@string/del_button" />
+            android:id="@+id/seven_button"
+            style="@style/num_button_style"
+            android:text="@string/seven_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/eight_button"
+            style="@style/num_button_style"
+            android:text="@string/eight_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nine_button"
+            style="@style/num_button_style"
+            android:text="@string/nine_button" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/percent_button"
@@ -50,64 +60,39 @@
             android:text="@string/percent_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/div_button"
-            style="@style/func_button_style"
-            android:text="@string/div_button" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/num7_button"
-            style="@style/num_button_style"
-            android:text="@string/num7_button" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/num8_button"
-            style="@style/num_button_style"
-            android:text="@string/num8_button" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/num9_button"
-            style="@style/num_button_style"
-            android:text="@string/num9_button" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/multiplication_button"
             style="@style/func_button_style"
             android:text="@string/multiplication_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num4_button"
-            style="@style/num_button_style"
-            android:text="@string/num4_button" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/num5_button"
-            style="@style/num_button_style"
-            android:text="@string/num5_button" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/num6_button"
-            style="@style/num_button_style"
-            android:text="@string/num6_button" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/minus_button"
+            android:id="@+id/div_button"
             style="@style/func_button_style"
-            android:text="@string/minus_button" />
+            android:text="@string/div_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num1_button"
-            style="@style/num_button_style"
-            android:text="@string/num1_button" />
+            android:id="@+id/del_button"
+            style="@style/func_button_style"
+            android:text="@string/del_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num2_button"
+            android:id="@+id/four_button"
             style="@style/num_button_style"
-            android:text="@string/num2_button" />
+            android:text="@string/four_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num3_button"
+            android:id="@+id/five_button"
             style="@style/num_button_style"
-            android:text="@string/num3_button" />
+            android:text="@string/five_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/six_button"
+            style="@style/num_button_style"
+            android:text="@string/six_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/zero_button"
+            style="@style/num_button_style"
+            android:text="@string/zero_button" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/plus_button"
@@ -115,14 +100,9 @@
             android:text="@string/plus_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num0_button"
-            style="@style/num_button_style"
-            android:text="@string/num0_button" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/num00_button"
-            style="@style/num_button_style"
-            android:text="@string/num00_button" />
+            android:id="@+id/minus_button"
+            style="@style/func_button_style"
+            android:text="@string/minus_button" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/dot_button"
@@ -130,14 +110,29 @@
             android:text="@string/dot_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/equal_button"
-            style="@style/func_button_style"
-            android:text="@string/equal_button" />
+            android:id="@+id/one_button"
+            style="@style/num_button_style"
+            android:text="@string/one_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/show_second_activity_button"
+            android:id="@+id/two_button"
             style="@style/num_button_style"
-            android:layout_columnSpan="4"
-            android:text="@string/second_activity_button" />
+            android:text="@string/two_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/three_button"
+            style="@style/num_button_style"
+            android:text="@string/three_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/double_zero_button"
+            style="@style/num_button_style"
+            android:text="@string/double_zero_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/equal_button"
+            style="@style/func_button_style"
+            android:layout_columnSpan="2"
+            android:text="@string/equal_button" />
     </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
