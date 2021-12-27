@@ -2,9 +2,9 @@ package ru.geekbrains.gb03_android_on_java_calculator;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     // идентификаторы кнопок предназначенных для ввода выражения,
     // у них общий обработчик
-    private static final int[] inputExprButtonsId = {
+    private static final int[] inputExpressionButtonsId = {
             R.id.num0_button, R.id.num1_button, R.id.num2_button,
             R.id.num3_button, R.id.num4_button, R.id.num5_button,
             R.id.num6_button, R.id.num7_button, R.id.num8_button,
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.minus_button,
     };
 
-    private Expr currentExpr = NumExpr.ZERO;
+    private Expression currentExpression;
     private TextView inputTextView;
 
     @Override
@@ -31,65 +31,66 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (savedInstanceState != null && savedInstanceState.containsKey(CURRENT_EXPR_KEY))
-            //currentExpr = (Expr) savedInstanceState.getSerializable(CURRENT_EXPR_KEY);
-            currentExpr = savedInstanceState.getParcelable(CURRENT_EXPR_KEY);
+        if (savedInstanceState != null && savedInstanceState.containsKey(CURRENT_EXPR_KEY)) {
+            currentExpression = savedInstanceState.getParcelable(CURRENT_EXPR_KEY);
+        } else {
+            currentExpression = ExpressionBuilder.zeroExpression();
+        }
 
-        initActivityView();
+        initView();
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        //outState.putSerializable(CURRENT_EXPR_KEY, currentExpr);
-        outState.putParcelable(CURRENT_EXPR_KEY, currentExpr);
+        outState.putParcelable(CURRENT_EXPR_KEY, currentExpression);
     }
 
-    private void initActivityView() {
+    private void initView() {
+        findViewById(R.id.clear_button).setOnClickListener(this::onClickClearButton);
+        findViewById(R.id.del_button).setOnClickListener(this::onClickDelButton);
+        findViewById(R.id.equal_button).setOnClickListener(this::onClickEqualButton);
+        findViewById(R.id.show_second_activity_button).setOnClickListener(this::onClickShowSecondActivity);
+
+        View.OnClickListener inputExpressionButtonListener = this::onClickInputExpressionButton;
+        for (int id : inputExpressionButtonsId) {
+            findViewById(id).setOnClickListener(inputExpressionButtonListener);
+        }
+
         inputTextView = findViewById(R.id.input_text_view);
-
-        findViewById(R.id.clear_button).setOnClickListener(this::clearButtonOnClick);
-        findViewById(R.id.del_button).setOnClickListener(this::delButtonOnClick);
-        findViewById(R.id.equal_button).setOnClickListener(this::equalButtonOnClick);
-        findViewById(R.id.show_second_activity_button).setOnClickListener(this::showSecondActivityOnClick);
-
-        View.OnClickListener listener = this::inputExprButtonOnClick;
-        for (int id : inputExprButtonsId)
-            findViewById(id).setOnClickListener(listener);
-
         updateInputTextView();
     }
 
-    private void showSecondActivityOnClick(View view) {
+    private void onClickShowSecondActivity(View view) {
         Intent intent = new Intent(this, SecondActivity.class);
-        intent.putExtra(SecondActivity.EXPR_EXTRA_KEY, (Parcelable) currentExpr);
+        intent.putExtra(SecondActivity.EXPR_EXTRA_KEY, currentExpression);
         startActivity(intent);
     }
 
-    private void clearButtonOnClick(View view) {
-        currentExpr = NumExpr.ZERO;
+    private void onClickClearButton(View view) {
+        currentExpression = ExpressionBuilder.zeroExpression();
         updateInputTextView();
     }
 
-    private void delButtonOnClick(View view) {
-        currentExpr = currentExpr.delete();
+    private void onClickDelButton(View view) {
+        currentExpression = ExpressionBuilder.deleteLastChar(currentExpression);
         updateInputTextView();
     }
 
-    private void equalButtonOnClick(View view) {
-        currentExpr = currentExpr.simplify();
+    private void onClickEqualButton(View view) {
+        currentExpression = ExpressionBuilder.calculateExpression(currentExpression);
         updateInputTextView();
     }
 
-    private void inputExprButtonOnClick(View view) {
+    private void onClickInputExpressionButton(View view) {
         if (view instanceof Button) {
             Button button = (Button) view;
-            currentExpr = currentExpr.concat(button.getText().toString());
+            currentExpression = ExpressionBuilder.concatWithString(currentExpression, button.getText().toString());
             updateInputTextView();
         }
     }
 
     private void updateInputTextView() {
-        inputTextView.setText(currentExpr.toString());
+        inputTextView.setText(currentExpression.convertToString());
     }
 }
