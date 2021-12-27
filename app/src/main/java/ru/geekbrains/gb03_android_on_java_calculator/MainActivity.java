@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private Expression currentExpression;
-    private TextView inputTextView;
+    private TextView expressionTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
             findViewById(id).setOnClickListener(inputExpressionButtonListener);
         }
 
-        inputTextView = findViewById(R.id.input_text_view);
-        updateInputTextView();
+        expressionTextView = findViewById(R.id.expression_text_view);
+        updateExpressionTextView();
     }
 
     private void onClickShowSecondActivity(View view) {
@@ -69,28 +69,28 @@ public class MainActivity extends AppCompatActivity {
 
     private void onClickClearButton(View view) {
         currentExpression = ExpressionBuilder.zeroExpression();
-        updateInputTextView();
+        updateExpressionTextView();
     }
 
     private void onClickDelButton(View view) {
         currentExpression = ExpressionBuilder.deleteLastChar(currentExpression);
-        updateInputTextView();
+        updateExpressionTextView();
     }
 
     private void onClickEqualButton(View view) {
         currentExpression = ExpressionBuilder.calculateExpression(currentExpression);
-        updateInputTextView();
+        updateExpressionTextView();
     }
 
     private void onClickInputExpressionButton(View view) {
         if (view instanceof Button) {
             Button button = (Button) view;
             currentExpression = ExpressionBuilder.concatWithString(currentExpression, button.getText().toString());
-            updateInputTextView();
+            updateExpressionTextView();
         }
     }
 
-    private void updateInputTextView() {
-        inputTextView.setText(currentExpression.convertToString());
+    private void updateExpressionTextView() {
+        expressionTextView.setText(currentExpression.convertToString());
     }
 }

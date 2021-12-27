@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_bridge_portrait"
+    android:background="@drawable/bg_bridge_landscape"
     tools:context=".MainActivity">
 
     <ImageView
@@ -11,20 +12,27 @@
         android:layout_height="match_parent"
         android:background="@color/opacity_white_200" />
 
-    <GridLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/expression_text_view"
+        style="@style/expression_text_style"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
+        android:textAlignment="viewEnd"
+        app:layout_constraintBottom_toBottomOf="@id/button_grid_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/button_grid_layout"
+        tools:text="@string/sample_expression" />
+
+    <GridLayout
+        android:id="@+id/button_grid_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:columnCount="4"
         android:orientation="horizontal"
-        android:padding="@dimen/default_padding">
-
-        <TextView
-            android:id="@+id/expression_text_view"
-            style="@style/expression_text_style"
-            android:layout_columnSpan="4"
-            android:layout_gravity="end"
-            tools:text="@string/sample_expression" />
+        android:padding="@dimen/default_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/clear_button"
@@ -104,13 +112,11 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/plus_button"
             style="@style/func_button_style"
-            android:layout_rowSpan="2"
             android:text="@string/plus_button" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/num0_button"
             style="@style/num_button_style"
-            android:layout_columnSpan="2"
             android:text="@string/num0_button" />
 
         <com.google.android.material.button.MaterialButton
@@ -119,15 +125,14 @@
             android:text="@string/num00_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/equal_button"
-            style="@style/func_button_style"
-            android:layout_columnSpan="3"
-            android:text="@string/equal_button" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/dot_button"
             style="@style/func_button_style"
             android:text="@string/dot_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/equal_button"
+            style="@style/func_button_style"
+            android:text="@string/equal_button" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/show_second_activity_button"
@@ -135,4 +140,4 @@
             android:layout_columnSpan="4"
             android:text="@string/second_activity_button" />
     </GridLayout>
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
