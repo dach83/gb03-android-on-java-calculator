@@ -134,11 +134,5 @@
             style="@style/func_button_style"
             android:layout_columnSpan="2"
             android:text="@string/equal_button" />
-
-        <!--        <com.google.android.material.button.MaterialButton-->
-        <!--            android:id="@+id/show_second_activity_button"-->
-        <!--            style="@style/num_button_style"-->
-        <!--            android:layout_columnSpan="4"-->
-        <!--            android:text="@string/second_activity_button" />-->
     </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
