@@ -55,19 +55,19 @@
             android:text="@string/div_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num7_button"
+            android:id="@+id/seven_button"
             style="@style/num_button_style"
-            android:text="@string/num7_button" />
+            android:text="@string/seven_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num8_button"
+            android:id="@+id/eight_button"
             style="@style/num_button_style"
-            android:text="@string/num8_button" />
+            android:text="@string/eight_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num9_button"
+            android:id="@+id/nine_button"
             style="@style/num_button_style"
-            android:text="@string/num9_button" />
+            android:text="@string/nine_button" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/multiplication_button"
@@ -75,19 +75,19 @@
             android:text="@string/multiplication_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num4_button"
+            android:id="@+id/four_button"
             style="@style/num_button_style"
-            android:text="@string/num4_button" />
+            android:text="@string/four_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num5_button"
+            android:id="@+id/five_button"
             style="@style/num_button_style"
-            android:text="@string/num5_button" />
+            android:text="@string/five_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num6_button"
+            android:id="@+id/six_button"
             style="@style/num_button_style"
-            android:text="@string/num6_button" />
+            android:text="@string/six_button" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/minus_button"
@@ -95,19 +95,19 @@
             android:text="@string/minus_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num1_button"
+            android:id="@+id/one_button"
             style="@style/num_button_style"
-            android:text="@string/num1_button" />
+            android:text="@string/one_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num2_button"
+            android:id="@+id/two_button"
             style="@style/num_button_style"
-            android:text="@string/num2_button" />
+            android:text="@string/two_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num3_button"
+            android:id="@+id/three_button"
             style="@style/num_button_style"
-            android:text="@string/num3_button" />
+            android:text="@string/three_button" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/plus_button"
@@ -115,14 +115,14 @@
             android:text="@string/plus_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num0_button"
+            android:id="@+id/zero_button"
             style="@style/num_button_style"
-            android:text="@string/num0_button" />
+            android:text="@string/zero_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/num00_button"
+            android:id="@+id/double_zero_button"
             style="@style/num_button_style"
-            android:text="@string/num00_button" />
+            android:text="@string/double_zero_button" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/dot_button"

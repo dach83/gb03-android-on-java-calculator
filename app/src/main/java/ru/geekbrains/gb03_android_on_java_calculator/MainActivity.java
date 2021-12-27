@@ -16,10 +16,10 @@ public class MainActivity extends AppCompatActivity {
     // идентификаторы кнопок предназначенных для ввода выражения,
     // у них общий обработчик
     private static final int[] inputExpressionButtonsId = {
-            R.id.num0_button, R.id.num1_button, R.id.num2_button,
-            R.id.num3_button, R.id.num4_button, R.id.num5_button,
-            R.id.num6_button, R.id.num7_button, R.id.num8_button,
-            R.id.num9_button, R.id.num00_button, R.id.dot_button,
+            R.id.zero_button, R.id.one_button, R.id.two_button,
+            R.id.three_button, R.id.four_button, R.id.five_button,
+            R.id.six_button, R.id.seven_button, R.id.eight_button,
+            R.id.nine_button, R.id.double_zero_button, R.id.dot_button,
             R.id.minus_button,
     };
 
