@@ -1,7 +1,5 @@
 package ru.geekbrains.gb03_android_on_java_calculator.expression;
 
-import android.util.Log;
-
 import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,8 +10,9 @@ public class ExpressionBuilder {
     private static final Expression EMPTY = new EmptyExpression();
 
     private static final Pattern doubleNumPattern = Pattern.compile("^(-?)(0|([1-9][0-9]*))*(\\.[0-9]*)?$");
-    private static final Pattern multiplyOrDivPattern = Pattern.compile("^(.*[0-9])([\\*/])([0-9]?.*)$");
-    private static final Pattern plusOrMinusPattern = Pattern.compile("^(.*[0-9])([\\+-])([0-9]?.*)$");
+    private static final Pattern multiplyOrDivPattern = Pattern.compile("^(.*[0-9]%?)([\\*/])([0-9]?.*)$");
+    private static final Pattern plusOrMinusPattern = Pattern.compile("^(.*[0-9]%?)([\\+-])([0-9]?.*)$");
+    private static final Pattern percentPattern = Pattern.compile("^(.*[0-9])%$");
 
     public static Expression zeroExpression() {
         return ZERO;
@@ -48,16 +47,27 @@ public class ExpressionBuilder {
         }
     }
 
+    private static Expression buildPercentExpressionFromString(String str) throws InvalidExpression {
+        Matcher matcher = percentPattern.matcher(str);
+        if (matcher.find()) {
+            String numStr = matcher.group(1);
+            Expression expression = buildNumExpressionFromString(numStr);
+            return new PercentExpression(expression);
+        } else {
+            throw new InvalidExpression("Invalid call buildPercentExpressionFromString()");
+        }
+    }
+
     private static Expression buildFuncExpressionFromString(String str, Pattern pattern) throws InvalidExpression {
         Matcher matcher = pattern.matcher(str);
         if (matcher.find()) {
-            String leftPart = matcher.group(1);
+            String leftStr = matcher.group(1);
             String operatorName = matcher.group(2);
-            String rightPart = matcher.group(3);
+            String rightStr = matcher.group(3);
             Operator operator = Operator.findByName(operatorName);
             FuncExpression expression = new FuncExpression(operator);
-            expression.setLeftExpression(buildFromString(leftPart));
-            expression.setRightExpression(buildFromString(rightPart));
+            expression.setLeftExpression(buildFromString(leftStr));
+            expression.setRightExpression(buildFromString(rightStr));
             return expression;
         } else {
             throw new InvalidExpression("Invalid call buildFuncExpressionFromString()");
@@ -71,6 +81,8 @@ public class ExpressionBuilder {
             return buildFuncExpressionFromString(str, plusOrMinusPattern);
         } else if (findPatternInString(str, multiplyOrDivPattern)) {
             return buildFuncExpressionFromString(str, multiplyOrDivPattern);
+        } else if (findPatternInString(str, percentPattern)) {
+            return buildPercentExpressionFromString(str);
         } else {
             return buildNumExpressionFromString(str);
         }

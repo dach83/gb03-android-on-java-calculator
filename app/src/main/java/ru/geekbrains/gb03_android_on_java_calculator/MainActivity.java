@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.nine_button, R.id.double_zero_button, R.id.dot_button,
             R.id.multiply_button, R.id.div_button,
             R.id.plus_button, R.id.minus_button,
+            R.id.percent_button,
     };
 
     private Expression currentExpression;
