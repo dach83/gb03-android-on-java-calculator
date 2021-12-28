@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import ru.geekbrains.gb03_android_on_java_calculator.expression.Expression;
+import ru.geekbrains.gb03_android_on_java_calculator.expression.ExpressionBuilder;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String CURRENT_EXPR_KEY = "current_expr_key";

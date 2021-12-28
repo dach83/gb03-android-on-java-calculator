@@ -1,4 +1,4 @@
-package ru.geekbrains.gb03_android_on_java_calculator;
+package ru.geekbrains.gb03_android_on_java_calculator.expression;
 
 import java.math.BigDecimal;
 import java.util.regex.Pattern;
