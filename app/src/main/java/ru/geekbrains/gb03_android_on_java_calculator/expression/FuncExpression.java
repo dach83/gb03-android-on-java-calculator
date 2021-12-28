@@ -10,23 +10,19 @@ public class FuncExpression extends Expression {
 
     public FuncExpression(Operator operator) {
         this.operator = operator;
+        this.leftExpression = ExpressionBuilder.emptyExpression();
+        this.rightExpression = ExpressionBuilder.emptyExpression();
     }
 
     @Override
     public String convertToString() {
-        return new StringBuilder()
-                .append((leftExpression != null) ? leftExpression.convertToString() : "")
-                .append(operator.convertToString())
-                .append((rightExpression != null) ? rightExpression.convertToString() : "")
-                .toString();
+        return leftExpression.convertToString() +
+                operator.convertToString() +
+                rightExpression.convertToString();
     }
 
     @Override
     public BigDecimal calculate() throws InvalidExpression {
-        if (leftExpression == null || rightExpression == null) {
-            throw new InvalidExpression("В выражении отсутствует один из операндов");
-        }
-
         return operator.calculate(leftExpression.calculate(), rightExpression.calculate());
     }
 

@@ -1,18 +1,33 @@
 package ru.geekbrains.gb03_android_on_java_calculator.expression;
 
+import android.util.Log;
+
 import java.math.BigDecimal;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ExpressionBuilder {
 
     private static final Expression ZERO = new NumExpression("0");
+    private static final Expression EMPTY = new EmptyExpression();
+
     private static final Pattern doubleNumPattern = Pattern.compile("^(-?)(0|([1-9][0-9]*))*(\\.[0-9]*)?$");
+    private static final Pattern multiplyOrDivPattern = Pattern.compile("^(.*[0-9])([\\*/])([0-9]?.*)$");
+    private static final Pattern plusOrMinusPattern = Pattern.compile("^(.*[0-9])([\\+-])([0-9]?.*)$");
 
     public static Expression zeroExpression() {
         return ZERO;
     }
 
-    public static Expression buildFromString(String str) throws InvalidExpression {
+    public static Expression emptyExpression() {
+        return EMPTY;
+    }
+
+    private static boolean findPatternInString(String str, Pattern pattern) {
+        return pattern.matcher(str).find();
+    }
+
+    private static Expression buildNumExpressionFromString(String str) throws InvalidExpression {
         try {
             String noZeroStr = str.replaceFirst("^0+", "");
             if (noZeroStr.isEmpty()) {
@@ -30,6 +45,34 @@ public class ExpressionBuilder {
             throw new InvalidExpression(str);
         } catch (Exception e) {
             throw new InvalidExpression(e.getMessage());
+        }
+    }
+
+    private static Expression buildFuncExpressionFromString(String str, Pattern pattern) throws InvalidExpression {
+        Matcher matcher = pattern.matcher(str);
+        if (matcher.find()) {
+            String leftPart = matcher.group(1);
+            String operatorName = matcher.group(2);
+            String rightPart = matcher.group(3);
+            Operator operator = Operator.findByName(operatorName);
+            FuncExpression expression = new FuncExpression(operator);
+            expression.setLeftExpression(buildFromString(leftPart));
+            expression.setRightExpression(buildFromString(rightPart));
+            return expression;
+        } else {
+            throw new InvalidExpression("Invalid call buildFuncExpressionFromString()");
+        }
+    }
+
+    public static Expression buildFromString(String str) throws InvalidExpression {
+        if (str.isEmpty()) {
+            return EMPTY;
+        } else if (findPatternInString(str, plusOrMinusPattern)) {
+            return buildFuncExpressionFromString(str, plusOrMinusPattern);
+        } else if (findPatternInString(str, multiplyOrDivPattern)) {
+            return buildFuncExpressionFromString(str, multiplyOrDivPattern);
+        } else {
+            return buildNumExpressionFromString(str);
         }
     }
 
