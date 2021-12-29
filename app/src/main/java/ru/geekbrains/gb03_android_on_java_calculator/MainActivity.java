@@ -66,14 +66,16 @@ public class MainActivity extends AppCompatActivity {
             findViewById(id).setOnClickListener(inputExpressionButtonListener);
         }
 
-        expressionTextView = findViewById(R.id.expression_text_view);
+        expressionTextView = findViewById(R.id.result_text_view);
         updateExpressionTextView();
     }
 
     private void onClickShowResultButton(View view) {
-        Intent intent = new Intent(this, SecondActivity.class);
         Expression resultExpression = ExpressionBuilder.calculateExpression(currentExpression);
-        intent.putExtra(SecondActivity.EXPR_EXTRA_KEY, resultExpression);
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, resultExpression.convertToString());
         startActivity(intent);
     }
 

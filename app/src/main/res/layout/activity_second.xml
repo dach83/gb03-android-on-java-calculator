@@ -6,7 +6,7 @@
     tools:context=".SecondActivity">
 
     <TextView
-        android:id="@+id/expression_text_view"
+        android:id="@+id/result_text_view"
         style="@style/expression_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
