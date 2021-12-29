@@ -20,7 +20,7 @@
         android:padding="@dimen/default_padding">
 
         <TextView
-            android:id="@+id/expression_text_view"
+            android:id="@+id/result_text_view"
             style="@style/expression_text_style"
             android:layout_columnSpan="4"
             android:layout_gravity="end"
@@ -62,7 +62,7 @@
             android:text="@string/nine_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/multiplication_button"
+            android:id="@+id/multiply_button"
             style="@style/func_button_style"
             android:text="@string/multiplication_button" />
 
@@ -130,9 +130,9 @@
             android:text="@string/dot_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/show_second_activity_button"
+            android:id="@+id/show_result_button"
             style="@style/num_button_style"
             android:layout_columnSpan="4"
-            android:text="@string/second_activity_button" />
+            android:text="@string/show_result_button" />
     </GridLayout>
 </FrameLayout>

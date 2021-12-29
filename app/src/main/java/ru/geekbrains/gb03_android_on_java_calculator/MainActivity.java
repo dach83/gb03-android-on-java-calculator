@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import ru.geekbrains.gb03_android_on_java_calculator.expression.Expression;
+import ru.geekbrains.gb03_android_on_java_calculator.expression.ExpressionBuilder;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String CURRENT_EXPR_KEY = "current_expr_key";
@@ -20,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
             R.id.three_button, R.id.four_button, R.id.five_button,
             R.id.six_button, R.id.seven_button, R.id.eight_button,
             R.id.nine_button, R.id.double_zero_button, R.id.dot_button,
-            R.id.minus_button,
+            R.id.multiply_button, R.id.div_button,
+            R.id.plus_button, R.id.minus_button,
+            R.id.percent_button,
     };
 
     private Expression currentExpression;
@@ -51,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.del_button).setOnClickListener(this::onClickDelButton);
         findViewById(R.id.equal_button).setOnClickListener(this::onClickEqualButton);
 
-        Button showSecondActivityButton = findViewById(R.id.show_second_activity_button);
+        Button showSecondActivityButton = findViewById(R.id.show_result_button);
         if (showSecondActivityButton != null) {
-            showSecondActivityButton.setOnClickListener(this::onClickShowSecondActivity);
+            showSecondActivityButton.setOnClickListener(this::onClickShowResultButton);
         }
 
         View.OnClickListener inputExpressionButtonListener = this::onClickInputExpressionButton;
@@ -61,13 +66,16 @@ public class MainActivity extends AppCompatActivity {
             findViewById(id).setOnClickListener(inputExpressionButtonListener);
         }
 
-        expressionTextView = findViewById(R.id.expression_text_view);
+        expressionTextView = findViewById(R.id.result_text_view);
         updateExpressionTextView();
     }
 
-    private void onClickShowSecondActivity(View view) {
-        Intent intent = new Intent(this, SecondActivity.class);
-        intent.putExtra(SecondActivity.EXPR_EXTRA_KEY, currentExpression);
+    private void onClickShowResultButton(View view) {
+        Expression resultExpression = ExpressionBuilder.calculateExpression(currentExpression);
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, resultExpression.convertToString());
         startActivity(intent);
     }
 
