@@ -56,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.del_button).setOnClickListener(this::onClickDelButton);
         findViewById(R.id.equal_button).setOnClickListener(this::onClickEqualButton);
 
-        Button showSecondActivityButton = findViewById(R.id.show_second_activity_button);
+        Button showSecondActivityButton = findViewById(R.id.show_result_button);
         if (showSecondActivityButton != null) {
-            showSecondActivityButton.setOnClickListener(this::onClickShowSecondActivity);
+            showSecondActivityButton.setOnClickListener(this::onClickShowResultButton);
         }
 
         View.OnClickListener inputExpressionButtonListener = this::onClickInputExpressionButton;
@@ -70,9 +70,10 @@ public class MainActivity extends AppCompatActivity {
         updateExpressionTextView();
     }
 
-    private void onClickShowSecondActivity(View view) {
+    private void onClickShowResultButton(View view) {
         Intent intent = new Intent(this, SecondActivity.class);
-        intent.putExtra(SecondActivity.EXPR_EXTRA_KEY, currentExpression);
+        Expression resultExpression = ExpressionBuilder.calculateExpression(currentExpression);
+        intent.putExtra(SecondActivity.EXPR_EXTRA_KEY, resultExpression);
         startActivity(intent);
     }
 

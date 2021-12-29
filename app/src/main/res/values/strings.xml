@@ -20,6 +20,6 @@
     <string name="plus_button">+</string>
     <string name="equal_button">=</string>
     <string name="dot_button">.</string>
-    <string name="second_activity_button">Вторая активность</string>
+    <string name="show_result_button">Показать результат</string>
     <string name="sample_expression">32.1+45.8*64%</string>
 </resources>

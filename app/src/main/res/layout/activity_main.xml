@@ -130,9 +130,9 @@
             android:text="@string/dot_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/show_second_activity_button"
+            android:id="@+id/show_result_button"
             style="@style/num_button_style"
             android:layout_columnSpan="4"
-            android:text="@string/second_activity_button" />
+            android:text="@string/show_result_button" />
     </GridLayout>
 </FrameLayout>
